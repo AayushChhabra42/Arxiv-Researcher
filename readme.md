@@ -44,7 +44,7 @@ User → CLI / Frontend
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/your-username/research-agent
+git clone https://github.com/AayushChhabra42/Arxiv-Researcher
 cd research-agent
 ```
 
