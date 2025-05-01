@@ -2,8 +2,8 @@ import requests
 from fastapi import FastAPI, Request
 from tools.call_arxiv import search_papers
 import tools.call_pdf_extract as pdf_extract
-# from tools.call_summarize import summarize_paper
-# from tools.call_flashcards import generate_flashcards
+from tools.call_summarizer import summarize_paper
+from tools.call_flashcards import generate_flashcards
 
 app = FastAPI()
 
@@ -23,13 +23,13 @@ async def agent(request: Request):
     for paper in papers:
         pdf_text= pdf_extract.extract_pdf_text(paper['link'], paper['title'])
         # Summarize the paper
-        #summary = summarize_paper(paper)
-        summaries.append(pdf_text)
+        summary = summarize_paper(paper,pdf_text)
+        summaries.append(summary)
     print(f"Summaries: {summaries}")
 
-    # # Generate Flashcards
-    # all_text = "\n".join(summaries)
-    # flashcards = generate_flashcards(all_text)
+    # Generate Flashcards
+    all_text = "\n".join(summaries)
+    flashcards = generate_flashcards(all_text)
 
-    # # Return the flashcards
-    # return {"flashcards": flashcards}\
+    # Return the flashcards
+    return {"flashcards": flashcards}
