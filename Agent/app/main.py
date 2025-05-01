@@ -16,6 +16,7 @@ async def agent(request: Request):
 
     # Search for the query
     papers = search_papers(query)
+    print(f"Found {len(papers)} papers.")
 
     # Retrieve Query Results and summarise them
     k=5

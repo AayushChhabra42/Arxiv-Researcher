@@ -4,7 +4,7 @@ def summarize_paper(paper, pdf_text):
     """
     Summarize the paper using Ollama (Gemma 3B)
     """
-    url = "http://localhost:11434/v1/chat/completions"
+    url = "http://0.0.0.0:11434/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
     }

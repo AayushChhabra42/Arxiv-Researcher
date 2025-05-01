@@ -1,3 +1,9 @@
 FROM ollama/ollama
 
-#RUN ollama pull gemma3:1b
+COPY ./run_ollama.sh /tmp/run_ollama.sh
+
+WORKDIR /tmp
+
+RUN chmod +x run_ollama.sh
+
+EXPOSE 11434

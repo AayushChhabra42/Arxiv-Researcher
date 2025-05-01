@@ -5,9 +5,12 @@ services:
     build: ./ollama
     ports:
       - "11434:11434"
+    entrypoint: /tmp/run_ollama.sh
     volumes:
       - ollama-data:/root/.ollama
-    command: ["sleep", "infinity"]
+    pull_policy: always
+    tty: true
+    restart: always
 
   agent:
     build: ./agent
