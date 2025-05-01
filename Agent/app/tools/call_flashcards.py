@@ -4,7 +4,7 @@ def generate_flashcards(text):
     """
     Use Ollama to generate flashcards in Markdown format.
     """
-    url = "http://0.0.0.0:11434/v1/chat/completions"  # Docker DNS
+    url = "http://172.20.0.1:11434/v1/chat/completions"  # Docker DNS
     headers = {"Content-Type": "application/json"}
 
     prompt = (
@@ -33,3 +33,4 @@ def generate_flashcards(text):
     except KeyError:
         print("Unexpected response format:", response.json())
         return None
+

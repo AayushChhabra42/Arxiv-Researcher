@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "Starting Ollama server..."
-ollama pull gemma3b:1b &
-ollama serve
+ollama run
+ollama pull gemma3:1b &
+ollama serve 
 
 
 
